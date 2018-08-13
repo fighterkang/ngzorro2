@@ -1,4 +1,139 @@
 <!-- NG-ZORRO -->
-<a href="https://github.com/NG-ZORRO/ng-zorro-antd" target="_blank" style="display: flex;align-items: center;justify-content: center;height: 100%;width: 100%;">
-  <img height="300" src="https://img.alicdn.com/tfs/TB1NvvIwTtYBeNjy1XdXXXXyVXa-89-131.svg">
-</a>
+<!--<a href="https://github.com/NG-ZORRO/ng-zorro-antd" target="_blank" style="display: flex;align-items: center;justify-content: center;height: 100%;width: 100%;">-->
+  <!--<img height="300" src="https://img.alicdn.com/tfs/TB1NvvIwTtYBeNjy1XdXXXXyVXa-89-131.svg">-->
+<!--</a>-->
+
+<div style="width: 1000px;margin: auto">
+
+  <button nz-button nzType="primary">Primary</button>
+  <button nz-button nzType="default">Default</button>
+  <button nz-button nzType="dashed">Dashed</button>
+  <button nz-button nzType="danger">Danger</button>
+  <br>
+
+  <nz-switch [(ngModel)]="mode">
+  </nz-switch>
+  Change Mode
+  <nz-divider nzType="vertical"></nz-divider>
+  <nz-switch [(ngModel)]="dark">
+  </nz-switch>
+  Change Theme
+  <br>
+  <br>
+  <ul nz-menu [nzMode]="mode?'vertical':'inline'" [nzTheme]="dark?'dark':'light'" style="width: 240px;">
+    <li nz-submenu>
+      <span title><i class="anticon anticon-mail"></i> Navigation One</span>
+      <ul>
+        <li nz-menu-group>
+          <span title>Item 1</span>
+          <ul>
+            <li nz-menu-item>Option 1</li>
+            <li nz-menu-item>Option 2</li>
+          </ul>
+        </li>
+        <li nz-menu-group>
+          <span title>Item 2</span>
+          <ul>
+            <li nz-menu-item>Option 3</li>
+            <li nz-menu-item>Option 4</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li nz-submenu>
+      <span title><i class="anticon anticon-appstore"></i> Navigation Two</span>
+      <ul>
+        <li nz-menu-item>Option 5</li>
+        <li nz-menu-item>Option 6</li>
+        <li nz-submenu>
+          <span title>Submenu</span>
+          <ul>
+            <li nz-menu-item>Option 7</li>
+            <li nz-menu-item>Option 8</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li nz-submenu>
+      <span title><i class="anticon anticon-setting"></i> Navigation Three</span>
+      <ul>
+        <li nz-menu-item>Option 9</li>
+        <li nz-menu-item>Option 10</li>
+        <li nz-menu-item>Option 11</li>
+      </ul>
+    </li>
+  </ul>
+  <br>
+
+  <nz-carousel nzAutoPlay>
+    <div nz-carousel-content *ngFor="let index of array"><h3>{{index}}</h3></div>
+  </nz-carousel>
+  <br>
+
+  <h4 style="margin-bottom: 16px;">Presets:</h4>
+  <div>
+    <nz-tag [nzColor]="'magenta'">magenta</nz-tag>
+    <nz-tag [nzColor]="'red'">red</nz-tag>
+    <nz-tag [nzColor]="'volcano'">volcano</nz-tag>
+    <nz-tag [nzColor]="'orange'">orange</nz-tag>
+    <nz-tag [nzColor]="'gold'">gold</nz-tag>
+    <nz-tag [nzColor]="'lime'">lime</nz-tag>
+    <nz-tag [nzColor]="'green'">green</nz-tag>
+    <nz-tag [nzColor]="'cyan'">cyan</nz-tag>
+    <nz-tag [nzColor]="'blue'">blue</nz-tag>
+    <nz-tag [nzColor]="'geekblue'">geekblue</nz-tag>
+    <nz-tag [nzColor]="'purple'">purple</nz-tag>
+  </div>
+  <h4 style="margin: 16px 0px;'">Custom:</h4>
+  <div>
+    <nz-tag [nzColor]="'#f50'">#f50</nz-tag>
+    <nz-tag [nzColor]="'#2db7f5'">#2db7f5</nz-tag>
+    <nz-tag [nzColor]="'#87d068'">#87d068</nz-tag>
+    <nz-tag [nzColor]="'#108ee9'">#108ee9</nz-tag>
+  </div>
+  <br>
+
+  <nz-radio-group [(ngModel)]="size">
+    <label nz-radio-button nzValue="large"><span>Large</span></label>
+    <label nz-radio-button nzValue="default"><span>Default</span></label>
+    <label nz-radio-button nzValue="small"><span>Small</span></label>
+  </nz-radio-group>
+  <br><br>
+  <nz-select style="width: 200px;" [(ngModel)]="singleValue" [nzSize]="size">
+    <nz-option *ngFor="let option of listOfOption" [nzLabel]="option.label" [nzValue]="option.value"></nz-option>
+  </nz-select>
+  <br><br>
+  <nz-select style="width: 200px;" [(ngModel)]="singleValue" [nzSize]="size" nzShowSearch>
+    <nz-option *ngFor="let option of listOfOption" [nzLabel]="option.label" [nzValue]="option.value"></nz-option>
+  </nz-select>
+  <br><br>
+  <nz-select style="width: 100%" [(ngModel)]="multipleValue" [nzSize]="size" nzMode="multiple" nzPlaceHolder="Please select">
+    <nz-option *ngFor="let option of listOfOption" [nzLabel]="option.label" [nzValue]="option.value"></nz-option>
+  </nz-select>
+  <br><br>
+  <nz-select style="width: 100%" [(ngModel)]="tagValue" [nzSize]="size" nzMode="tags" nzPlaceHolder="Please select">
+    <nz-option *ngFor="let option of listOfOption" [nzLabel]="option.label" [nzValue]="option.value"></nz-option>
+  </nz-select>
+  <br>
+
+  <nz-row>
+    <nz-col nzSpan="12">
+      <nz-slider [nzMin]="1" [nzMax]="20" [(ngModel)]="value1"></nz-slider>
+    </nz-col>
+    <div nz-col nzSpan="4">
+      <nz-input-number [nzMin]="1" [nzMax]="20" [ngStyle]="{ 'marginLeft': '16px' }" [(ngModel)]="value1"></nz-input-number>
+    </div>
+  </nz-row>
+
+  <nz-row>
+    <nz-col nzSpan="12">
+      <nz-slider [nzMin]="0" [nzMax]="1" [nzStep]="0.01" [(ngModel)]="value2"></nz-slider>
+    </nz-col>
+    <nz-col nzSpan="4">
+      <nz-input-number [nzMin]="0" [nzMax]="1" [ngStyle]="{ marginLeft: '16px' }" [nzStep]="0.01" [(ngModel)]="value2"></nz-input-number>
+    </nz-col>
+  </nz-row>
+
+</div>
+
+
